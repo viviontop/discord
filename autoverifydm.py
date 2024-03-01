@@ -1,4 +1,4 @@
-# This discord bot will auto give people that send a message in a custom channel , a custom role. It also sends everyone that joins a custom message and a custom message after they are verified
+# Auto dm when enter server , auto give role in preffered channel after anyone sends a photo also dms them that they are verified
 # needs: "pip install discord.py"
 import discord
 
@@ -6,7 +6,7 @@ import discord
 intents = discord.Intents.default()
 intents.messages = True  # Allow the bot to receive message events
 intents.members = True  # Allow the bot to receive member events
-
+intents.message_content = True
 # Create the Discord client with the specified intents
 client = discord.Client(intents=intents)
 
@@ -26,7 +26,7 @@ async def on_member_join(member):
 @client.event
 async def on_message(message):
     # Check if the message was sent in the specific channel
-    if message.channel.id == YOUR_CHANNEL_ID:
+    if message.channel.id == YOUR_CHANNEL_ID and message.attachments:
         # Ensure that the message sender is not the bot itself
         if message.author != client.user:
             # Get the guild
