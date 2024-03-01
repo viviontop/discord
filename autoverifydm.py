@@ -1,3 +1,5 @@
+# This discord bot will auto give people that send a message in a custom channel , a custom role. It also sends everyone that joins a custom message and a custom message after they are verified
+# needs: "pip install discord.py"
 import discord
 
 # Define the intents
