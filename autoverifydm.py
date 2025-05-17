@@ -1,5 +1,5 @@
 # Auto dm when enter server , auto give role in preffered channel after anyone sends a photo also dms them that they are verified
-# needs: "pip install discord.py"
+# needs: pip install discord.py
 import discord
 
 # Define the intents
@@ -29,10 +29,10 @@ async def on_message(message):
     if message.channel.id == YOUR_CHANNEL_ID and message.attachments:
         # Ensure that the message sender is not the bot itself
         if message.author != client.user:
-            # Get the guild
+            # Get the server
             guild = client.get_guild(YOUR_GUILD_ID)
             if guild is not None:
-                # Get the role you want to assign by ID
+                # Get the role you want to assign by id
                 role = discord.utils.get(guild.roles, id=YOUR_ROLE_ID)
                 if role is not None:
                     # Assign the role to the author of the message
@@ -46,5 +46,4 @@ async def on_message(message):
             else:
                 print("Guild not found.")
 
-# Run the bot with your bot token
-client.run('YOUR_BOT_TOKEN')
+client.run('BOT_TOKEN')
